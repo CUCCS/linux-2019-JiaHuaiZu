@@ -53,4 +53,24 @@
     ```
   - 下载上述脚本中需要的内容 apt install genisoimage
   - 执行脚本,生成镜像文件bash shell
-- 将无人值守的镜像从虚拟机服务器下载到本机,并在本机上安装
+- 将无人值守的镜像从虚拟机服务器使用sftp方式下载到本机,并在本机上安装
+  - 在virtualbox中为虚拟机添加另一个网卡,并设为host-only模式
+  - 在虚拟机中修改01-netcfg.yaml文件 sudo vi /etc/netplan/01-netcfg.yaml
+     并在尾部添加如下内容
+     ```
+     enp0s8:
+       dhcp4: yes
+     ```
+  - 应用改变 sudo netplan apply
+  - 连接服务器,在本机上cmd命令行中输入sftp jhz@192.168.56.102 
+  - 获取镜像文件wget /home/jhz/cd/custom.iso
+  - 之后使用该镜像文件安装虚拟机
+- 新添加网卡实现开机自启动和自动获取ip
+  - 在虚拟机中修改01-netcfg.yaml文件 sudo vi /etc/netplan/01-netcfg.yaml
+     并在尾部添加如下内容
+     ```
+    auto enp0s8
+    iface enp0s8 inet dhcp
+
+     ```
+   - 应用改变 sudo netplan apply
