@@ -20,7 +20,7 @@
 
 - 创建无人值守的iso镜像
   - 下载正常镜像到虚拟机wget http://old-releases.ubuntu.com/releases/18.04.0/ubuntu-18.04.1-server-amd64.iso(连接不到校园网,所以在外网上寻找资源)
-    ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/1.PNG)
+    ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/image/1.PNG)
   - 按照实验指导上的要求执行
     - 创建一个工作目录mkdir loopdir
     - 挂载iso镜像文件到该目录mount -o loop ubuntu-16.04.1-server-amd64.iso loopdir
@@ -36,11 +36,11 @@
      kernel /install/vmlinuz
      append  file=/cdrom/preseed/ubuntu-server-autoinstall.seed debian-installer/locale=en_US console-setup/layoutcode=us keyboard-configuration/layoutcode=us console-setup/ask_detect=false localechooser/translation/warn-light=true localechooser/translation/warn-severe=true initrd=/install/initrd.gz root=/dev/ram rw quiet
     ```
-    ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/2.PNG)
+    ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/image/2.PNG)
     - 修改isolinux/isolinux.cfg，将timeout 300改为timeout 10
   - 下载老师修改过的.seed文件wget http://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x01/cd-rom/preseed/ubuntu-server-autoinstall.seed
   - 将该文件保存到~/cd/preseed目录下cp ubuntu-server-autoinstall.seed ~/cd/preseed/ubuntu-server-autoinstall.seed
-  ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/3.PNG)
+  ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/image/3.PNG)
   - 重新生成md5sum.txt文件 cd ~/cd && find . -type f -print0 | xargs -0 md5sum > md5sum.txt
   - 在当前目录下创建shell脚本,在其中添加以下内容
     ```
@@ -56,7 +56,7 @@
     ```
   - 下载上述脚本中需要的内容 apt install genisoimage
   - 执行脚本,生成镜像文件bash shell
-  ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/4.PNG)
+  ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/image/4.PNG)
 - 将无人值守的镜像从虚拟机服务器使用sftp方式下载到本机,并在本机上安装
   - 在virtualbox中为虚拟机添加另一个网卡,并设为host-only模式
   - 在虚拟机中修改01-netcfg.yaml文件 sudo vi /etc/netplan/01-netcfg.yaml
@@ -65,12 +65,12 @@
      enp0s8:
        dhcp4: yes
      ```
-     ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/7.png)
+     ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/image/7.png)
   - 应用改变 sudo netplan apply
   - 连接服务器,在本机上cmd命令行中输入sftp jhz@192.168.56.102 
-  ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/5.png)
+  ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/image/5.png)
   - 获取镜像文件wget /home/jhz/cd/custom.iso
-  ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/6.png)
+  ![image](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/1st/image/6.png)
   - 之后使用该镜像文件安装虚拟机
 - 新添加网卡实现开机自启动和自动获取ip
   - 在虚拟机中修改01-netcfg.yaml文件 sudo vi /etc/netplan/01-netcfg.yaml
