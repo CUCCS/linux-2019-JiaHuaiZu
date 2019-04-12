@@ -1,7 +1,21 @@
 #!bin/bash
 #data processing
 
+function usage(){
+	echo " IMproved 1.0 (2019 April 12) "
+	echo " usage: bash player analysis processing "
+	echo " 统计不同年龄区间范围（20岁以下、[20-30]、30岁以上）的球员数量、百分比 "
+	echo " 统计不同场上位置的球员数量、百分比 "
+	echo " 名字最长的球员是谁？名字最短的球员是谁？ "
+	echo " 年龄最大的球员是谁？年龄最小的球员是谁？"
+	echo " Arguments: "
+	echo " -h help info "
+}
+
 function process(){
+	if [ '$1' == '-h' ] ;then
+		usage
+	else
 	ages=$(awk -F '\t' '{print $6}' worldcupplayerinfo.tsv)	
 	positions=$(awk -F '\t' '{print $5}' worldcupplayerinfo.tsv)
 	names=$( awk -F '\t' '{print length($9)}' worldcupplayerinfo.tsv)
@@ -78,5 +92,6 @@ function process(){
 	echo ''
 	echo 'The youngest player is' $youngestname 'age' $youngest
 	echo 'The oldest player is' $oldestname 'age' $oldest
+	fi
 }
-process
+process $1
