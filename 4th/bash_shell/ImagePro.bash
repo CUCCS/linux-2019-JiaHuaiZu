@@ -58,15 +58,15 @@ function Process()
 			if [[ $f =~ '.png' ]];then
 				str=$f
 				str=${str/\.png/\.jpg}
-				$(convert '$f' '$str') 
+				$(convert $f $str) 
 			elif [[ $f =~ '.PNG' ]];then
 				str=$f
 				str=${str/\.PNG/\.jpg}
-				$(convert '$f' '$str') 
+				$(convert $f $str) 
 			elif [[ $f =~ '.svg' ]];then
 				str=$f
 				str=${str/\.svg/\.jpg}
-				$(convert '$f' '$str')	
+				$(convert $f $str)	
 			fi
 		done
 	fi	
