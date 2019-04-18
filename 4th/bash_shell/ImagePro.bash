@@ -59,7 +59,7 @@ function Process()
 			fi
 		fi
 	elif [ "$1" == "-t" ];then
-		for f in *
+		for f in $2/*
 		do
 			if [[ $f =~ '.png' ]];then
 				str=$f
