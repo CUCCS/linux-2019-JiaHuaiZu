@@ -45,7 +45,7 @@ function Process()
 	elif [ "$1" == "-r" ];then
 		if [ $# == 4 ];then
 			if [ "$2" == "front" ];then
-				$(rename 's/\//'$3'/' $4/*)
+				$(rename 's/^/'$3'/' $4/*)
 			elif [ "$2" == "behind" ];then
 				$(rename 's/\./'$3'\./' $4/*)
 			else
