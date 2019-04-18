@@ -59,10 +59,6 @@ function Process()
 				str=$f
 				str=${str/\.png/\.jpg}
 				$(convert $f $str) 
-			elif [[ $f =~ '.PNG' ]];then
-				str=$f
-				str=${str/\.PNG/\.jpg}
-				$(convert $f $str) 
 			elif [[ $f =~ '.svg' ]];then
 				str=$f
 				str=${str/\.svg/\.jpg}
