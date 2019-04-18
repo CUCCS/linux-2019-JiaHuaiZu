@@ -18,14 +18,12 @@ function Process()
 	if [ "$1" == "-p" ];then
 		if [ $# == 5 ];then
 			$(convert -resize $2%X$3% $4 $5)
-			exit 1
 		else 
 			usage
 		fi
 	elif [ "$1" == "-q" ];then
 		if [ $# == 4 ];then
 			$(convert -quality $2 $3 $4)
-			exit 1
 		else
 			usage
 		fi
@@ -38,10 +36,8 @@ function Process()
                                		$(convert $img -gravity $2 -draw "text 5,5 '$3'" $img)
 					fi
                                 done
-	                        exit 1
 			else
 				$(convert $4 -gravity $2 -draw "text 5,5 '$3'" $4)
-				exit 1
 			fi
 		else
 			usage
@@ -50,10 +46,8 @@ function Process()
 		if [ $# == 4 ];then
 			if [ "$2" == "front" ];then
 				$(rename 's/^/$3/' $4/*)
-				exit 1
 			elif [ "$2" == "behind" ];then
 				$(rename 's/\./'$3'\./' $4/*)
-				exit 1
 			else
 				usage
 			fi
@@ -65,13 +59,16 @@ function Process()
 				str=$f
 				str=${str/\.png/\.jpg}
 				$(convert $f $str) 
-			else [[ $f =~ '.svg' ]]
+			elif [[ $f =~ '.PNG' ]];then
+				str=$f
+				str=${str/\.PNG/\.jpg}
+				$(convert $f $str) 
+			elif [[ $f =~ '.svg' ]];then
 				str0=$f
 				str0=${str0/\.svg/\.jpg}
 				$(convert $f $str)	
 			fi
 		done
-		exit 1
 	fi	
 
 }
