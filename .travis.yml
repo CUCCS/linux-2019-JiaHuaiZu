@@ -10,7 +10,6 @@ before_install:
     - sudo cp shellcheck-"${scversion}"/shellcheck /usr/bin/
     - /usr/bin/shellcheck --version
     
-    - ls -l
     - sudo apt-get install imagemagick
     - sudo apt install ghostscript
     - sudo apt install p7zip-full
@@ -20,8 +19,6 @@ before_install:
     
 
 script:
-  - ls -l 4th
-  - ls -l 4th/images
   #任务一
   ##支持对jpeg/png/svg格式图片在保持原始宽高比的前提下压缩分辨率
   - bash 4th/bash_shell/ImagePro.bash -p 50 50 4th/images/a.jpg 4th/images/a1.jpg
@@ -47,8 +44,6 @@ script:
   - bash 4th/bash_shell/webPro.bash -d
   ##分别统计不同4XX状态码对应的TOP 10 URL和对应出现的总次数
   - bash 4th/bash_shell/webPro.bash -e
-  - ls -l
-  - ls -l 4th/images
 
 after_script:
   - /usr/bin/shellcheck test.sh
