@@ -18,7 +18,7 @@ before_install:
     
 
 script:
-  - bash 4th/bash_shell/imgPro.bash -p 50 50 4th/images/a.jpg 4th/images/a1.jpg
+  - bash 4th/bash_shell/imagePro.bash -p 50 50 4th/images/a.jpg 4th/images/a1.jpg
 
 after_script:
   - /usr/bin/shellcheck test.sh
