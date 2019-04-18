@@ -11,6 +11,7 @@ before_install:
     - /usr/bin/shellcheck --version
     
     - sudo apt-get install imagemagick
+    - sudo apt install ghostscript
     - sudo apt install p7zip-full
     - wget http://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/worldcupplayerinfo.tsv
     - wget http://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z
@@ -25,7 +26,7 @@ script:
   - bash 4th/bash_shell/ImagePro.bash -q 50 4th/images/a.jpg 4th/images/a2.jpg
   ##支持对图片批量添加自定义文本水印
   - bash 4th/bash_shell/ImagePro.bash -m southeast cuc 4th/images
-  - bash 4th/bash_shell/ImagePro.bash -m southeast 101010101 4th/images/a.jpg
+  - bash 4th/bash_shell/ImagePro.bash -m southwest 101010101 4th/images/a.jpg
   ##支持批量重命名（统一添加文件名前缀或后缀，不影响原始文件扩展名）
   - bash 4th/bash_shell/ImagePro.bash -r behind qwer
   - bash 4th/bash_shell/ImagePro.bash -r front asdf
