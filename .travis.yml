@@ -18,7 +18,33 @@ before_install:
     
 
 script:
+  #任务一
+  ##支持对jpeg/png/svg格式图片在保持原始宽高比的前提下压缩分辨率
   - bash 4th/bash_shell/ImagePro.bash -p 50 50 4th/images/a.jpg 4th/images/a1.jpg
+  ##支持对jpeg格式图片进行图片质量压缩
+  - bash 4th/bash_shell/ImagePro.bash -q 50 4th/images/a.jpg 4th/images/a2.jpg
+  ##支持对图片批量添加自定义文本水印
+  - bash 4th/bash_shell/ImagePro.bash -m southeast cuc 4th/images
+  - bash 4th/bash_shell/ImagePro.bash -m southeast 101010101 4th/images/a.jpg
+  ##支持批量重命名（统一添加文件名前缀或后缀，不影响原始文件扩展名）
+  - bash 4th/bash_shell/ImagePro.bash -r behind qwer
+  - bash 4th/bash_shell/ImagePro.bash -r front asdf
+  ##支持将png/svg图片统一转换为jpg格式图片
+  - bash 4th/bash_shell/ImagePro.bash -t 4th/images
+  #任务二
+  - bash 4th/bash_shell/playerPro.bash
+  #任务三
+  ##统计访问来源主机TOP 100和分别对应出现的总次数
+  - bash 4th/bash_shell/webPro.bash -a
+  ##统计访问来源主机TOP 100 IP和分别对应出现的总次数
+  - bash 4th/bash_shell/webPro.bash -b
+  ##统计最频繁被访问的URL TOP 100
+  - bash 4th/bash_shell/webPro.bash -c
+  ##统计不同响应状态码的出现次数和对应百分比
+  - bash 4th/bash_shell/webPro.bash -d
+  ##分别统计不同4XX状态码对应的TOP 10 URL和对应出现的总次数
+  - bash 4th/bash_shell/webPro.bash -e
+  
 
 after_script:
   - /usr/bin/shellcheck test.sh
