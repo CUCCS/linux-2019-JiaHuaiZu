@@ -65,7 +65,7 @@ function Process()
 				$(convert $f $str) 
 			elif [[ $f =~ '.svg' ]];then
 				str=$f
-				str=${str0/\.svg/\.jpg}
+				str=${str/\.svg/\.jpg}
 				$(convert $f $str)	
 			fi
 		done
