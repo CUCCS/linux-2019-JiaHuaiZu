@@ -47,12 +47,12 @@ function Process()
 			usage
 		fi
 	elif [ "$1" == "-r" ];then
-		if [ $# == 3 ];then
+		if [ $# == 4 ];then
 			if [ "$2" == "front" ];then
-				$(rename 's/^/$3/' *)
+				$(rename 's/^/$3/' $4/*)
 				exit 1
 			elif [ "$2" == "behind" ];then
-				$(rename 's/\./'$3'\./' *)
+				$(rename 's/\./'$3'\./' $4/*)
 				exit 1
 			else
 				usage
