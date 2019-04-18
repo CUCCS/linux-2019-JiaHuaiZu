@@ -11,7 +11,7 @@ before_install:
     - /usr/bin/shellcheck --version
 
 script:
-  - bash test.sh
+  - bash /4th/imgPro.sh
 
 after_script:
   - /usr/bin/shellcheck test.sh
