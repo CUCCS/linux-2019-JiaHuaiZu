@@ -13,12 +13,12 @@ before_install:
     - sudo apt-get install imagemagick
     - sudo apt install p7zip-full
     - wget http://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/worldcupplayerinfo.tsv
-    - wget http://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z
+    # wget http://sec.cuc.edu.cn/huangwei/course/LinuxSysAdmin/exp/chap0x04/web_log.tsv.7z
     - 7z x web_log.tsv.7z
     
 
 script:
-  - bash 4th/bash_shell/imagePro.bash -p 50 50 4th/images/a.jpg 4th/images/a1.jpg
+  - bash 4th/bash_shell/ImagePro.bash -p 50 50 4th/images/a.jpg 4th/images/a1.jpg
 
 after_script:
   - /usr/bin/shellcheck test.sh
