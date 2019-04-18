@@ -31,8 +31,8 @@ script:
   - bash 4th/bash_shell/ImagePro.bash -m southeast cuc 4th/images
   - bash 4th/bash_shell/ImagePro.bash -m southwest 101010101 4th/images/a.jpg
   ##支持批量重命名（统一添加文件名前缀或后缀，不影响原始文件扩展名）
-  - bash 4th/bash_shell/ImagePro.bash -r behind qwer
-  - bash 4th/bash_shell/ImagePro.bash -r front asdf
+  - bash 4th/bash_shell/ImagePro.bash -r behind qwer 4th/images
+  - bash 4th/bash_shell/ImagePro.bash -r front asdf 4th/images
   ##支持将png/svg图片统一转换为jpg格式图片
   - bash 4th/bash_shell/ImagePro.bash -t 4th/images
   #任务二
