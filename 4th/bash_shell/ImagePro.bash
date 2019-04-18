@@ -29,10 +29,10 @@ function Process()
 		fi
 	elif [ "$1" == "-m" ];then
 		if [ $# == 4 ];then
-			if [ 'file --mime-type -b $4' == "inode/directory" ];then
+			if [ `file --mime-type -b $4` == "inode/directory" ];then
 				for img in $4/*
                                 do
-					if [ 'file --mime-type -b $img' == "image/jpeg" ];then
+					if [ `file --mime-type -b $img` == "image/jpeg" ];then
                                		$(convert $img -gravity $2 -draw "text 5,5 '$3'" $img)
 					fi
                                 done
@@ -64,8 +64,8 @@ function Process()
 				str=${str/\.PNG/\.jpg}
 				$(convert $f $str) 
 			elif [[ $f =~ '.svg' ]];then
-				str0=$f
-				str0=${str0/\.svg/\.jpg}
+				str=$f
+				str=${str0/\.svg/\.jpg}
 				$(convert $f $str)	
 			fi
 		done
