@@ -32,7 +32,7 @@ function Process()
 			if [ $(file --mime-type -b $4) == "inode/directory" ];then
 				for img in $4/*
                                 do
-					if [ $(file --mime-type -b '$img') == "image/jpeg" ] || [ $(file --mime-type -b '$img') == "image/png" ] || [ $(file --mime-type -b '$img') == "image/svg+xml" ];then
+					if [[ $(file --mime-type -b '$img') == "image/jpeg" ]] || [[ $(file --mime-type -b '$img') == "image/png" ]] || [[ $(file --mime-type -b '$img') == "image/svg+xml" ]];then
                                		$(convert $img -gravity $2 -draw "text 5,5 '$3'" $img)
 					fi
                                 done
