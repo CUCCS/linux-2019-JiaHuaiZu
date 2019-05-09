@@ -40,7 +40,8 @@ VeryNginx
   - Backend_Proxy Pass
   ![](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/5th/5th/images/Backend_Proxy.png)
   - 配置文件
-  
+  [nginx](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/5th/5th/default)
+  [verynginx](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/5th/5th/nginx.conf)
   - 使用Wordpress搭建的站点对外提供访问的地址为： https://wp.sec.cuc.edu.cn 和 http://wp.sec.cuc.edu.cn
   ![](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/5th/5th/images/forward_wp.png)
   ![](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/5th/5th/images/forward_swp.png)
