@@ -136,7 +136,7 @@ VeryNginx
   
 	  ![](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/5th/5th/images/vn_white_ip_refuse.png)
   
- 	- Custom Action_Filter
+ 	 - Custom Action_Filter
     
     	  ![](https://github.com/CUCCS/linux-2019-JiaHuaiZu/blob/5th/5th/images/vn_white_ip2.png)
   
